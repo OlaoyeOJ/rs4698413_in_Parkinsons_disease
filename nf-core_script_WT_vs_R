@@ -2,7 +2,7 @@ sample,fastq_1,fastq_2,strandedness,condition,replicate,batch
 TREATMENT_REP1,/home/oola249/projects/RNA_Seq_Batch_Set/Rawdata/B9/B9_R1.fq.gz,/home/oola249/projects/RNA_Seq_Batch_Set/Rawdata/B9/B9_R2.fq.gz,auto,treatment,1,A
 TREATMENT_REP2,/home/oola249/projects/RNA_Seq_Batch_Set/Rawdata/B10/B10_R1.fq.gz,/home/oola249/projects/RNA_Seq_Batch_Set/Rawdata/B10/B10_R2.fq.gz,auto,treatment,2,A
 TREATMENT_REP3,/home/oola249/projects/RNA_Seq_Batch_Set/Rawdata/B11/B11_R1.fq.gz,/home/oola249/projects/RNA_Seq_Batch_Set/Rawdata/B11/B11_R2.fq.gz,auto,treatment,3,A
-TREATMENT_REP4,/home/oola249/projects/OO_RNAseq/cleandata/T2A4-LFL9935_clean_R1.fq.gz,/home/oola249/projects/OO_RNAseq/cleandata/T2A4-LFL9935_clean_R2.fq.gz,auto,treatment,4,B
+
 CONTROL_REP1,/home/oola249/projects/WNT_RNA/M137/M137_R1.fq.gz,/home/oola249/projects/WNT_RNA/M137/M137_R2.fq.gz,auto,control,1,A
 CONTROL_REP2,/home/oola249/projects/WNT_RNA/M138/M138_R1.fq.gz,/home/oola249/projects/WNT_RNA/M138/M138_R2.fq.gz,auto,control,2,A
 CONTROL_REP3,/home/oola249/projects/WNT_RNA/M141/M141_R1.fq.gz,/home/oola249/projects/WNT_RNA/M141/M141_R2.fq.gz,auto,control,3,A
