@@ -1,0 +1,79 @@
+# Install DESeq2 if not already installed
+if (!requireNamespace("DESeq2", quietly = TRUE)) {
+  BiocManager::install("DESeq2")
+}
+
+# Load DESeq2 library
+library(DESeq2)
+
+# Load your DESeq2 dataset (replace with your actual file)
+load("deseq2.dds.RData")  # This should load your 'dds' object
+
+# Ensure 'Group1' is a factor and set 'CONTROL' as the reference level
+dds$Group1 <- relevel(factor(dds$Group1), ref = "CONTROL")
+
+# Set the design formula to use 'Group1'
+design(dds) <- ~ Group1
+
+# Add batch information to the dds object (if not already present)
+dds$batch <- factor(c("A", "A", "B", "B", "A", "A", "A", "A"))  # Adjust with actual batch info
+
+# Check that both Group1 (condition) and batch are factors
+dds$Group1 <- factor(dds$Group1)
+dds$batch <- factor(dds$batch)
+
+# Update the design formula to account for both Group1 and batch effects
+design(dds) <- ~ batch + Group1
+
+# Perform the DESeq2 analysis with batch effect accounted for
+deseq <- DESeq(dds)
+
+# Check the available result names (optional)
+resultsNames(deseq)
+
+# Obtain results comparing 'TREATMENT' to 'CONTROL', adjusting for batch
+res <- results(deseq, contrast = c("Group1", "TREATMENT", "CONTROL"),
+               cooksCutoff = TRUE,
+               independentFiltering = TRUE,
+               alpha = 0.05,
+               pAdjustMethod = "bonferroni")
+
+# Convert the results to a data frame for easier manipulation
+result_df <- data.frame(
+  gene_id = rownames(res),
+  log2foldchange = res$log2FoldChange,
+  pvalue = res$pvalue,
+  lfcSE = res$lfcSE,
+  padj = res$padj
+)
+
+# Load your original gene name data (replace with your actual file)
+df <- read.csv("salmon.merged.gene_counts_length_scaled.tsv", sep = "\t", header = TRUE)
+
+
+# Add gene_name column from your original data to the results
+genes <- df$gene_name
+result_df$gene_name <- genes
+
+# Order the results in the desired way
+results_perfect <- result_df[, c("gene_id", "gene_name", "log2foldchange", "lfcSE", "pvalue", "padj")]
+
+# Remove rows with NA pvalues
+results_perfect <- na.omit(results_perfect, subset = "pvalue")
+
+# Remove duplicate rows
+results_perfect <- unique(results_perfect)
+
+# Create a filtered subset with padj <= 0.05 and log2foldchange > 1
+Final_results <- results_perfect[abs(results_perfect$log2foldchange) > 1, ]
+Final_results <- Final_results[Final_results$pvalue <= 0.05, ]
+Final_results <- Final_results[Final_results$padj <= 0.05, ]
+
+
+# Save the filtered results to a TSV file
+write.table(Final_results, "New_Result_005adjFR.tsv", sep = "\t", quote = FALSE)
+
+# Optional: Check the top results
+head(Final_results)
+
+
