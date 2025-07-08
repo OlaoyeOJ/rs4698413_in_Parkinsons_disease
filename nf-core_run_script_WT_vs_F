@@ -1,21 +1,13 @@
 #!/bin/bash
 export NXF_SINGULARITY_CACHEDIR=/mnt/projects/users/oyedele
 export SINGULARITY_TMPDIR=/mnt/projects/users/oyedele
-export NXF_HOME=/home/oola249/.nextflow/
-
-#nextflow run nf-core/rnaseq \
-# -profile test,singularity \
-#  --outdir /home/oola249/test_rnaseq \
-# -w /dev/shm/rnaseq_work \
-#  -resume
-#-r v
 
 nextflow run nf-core/rnaseq \
     -profile singularity \
-    --input /home/oola249/T2_4x4.csv \
-    --outdir /mnt/projects/users/oyedele/rnaseq_T2_4x4_Batch \
-    --gtf /home/oola249/projects/mapping_files/Homo_sapiens.GRCh38.111.gtf.gz \
-    --fasta /home/oola249/projects/mapping_files/Homo_sapiens.GRCh38.dna_sm.primary_assembly.fa.gz \
+    --input path to csv file (nf-core_script_WT_vs_F) \
+    --outdir path to output folder \
+    --gtf path to reference genome/mapping_files/Homo_sapiens.GRCh38.111.gtf.gz \
+    --fasta path to fasta file /mapping_files/Homo_sapiens.GRCh38.dna_sm.primary_assembly.fa.gz \
     --igenomes_ignore \
     --genome null \
-    -w /mnt/projects/users/oyedele/T2_4x4_rnaseq_result
+    -w work directory
