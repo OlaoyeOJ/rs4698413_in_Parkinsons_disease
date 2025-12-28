@@ -1,11 +1,11 @@
 #Reverse_vs_WT (TREATMENT_REP = Reverse and CONTROL_REP = WT)
 
 sample,fastq_1,fastq_2,strandedness,condition,replicate,batch
-TREATMENT_REP1,/mnt/disks/disk2/roan/Reverse_Fastq/B9_R1.fq.gz,/mnt/disks/disk2/roan/Reverse_Fastq/B9_R2.fq.gz,auto,treatment,1,A 
-TREATMENT_REP2,/mnt/disks/disk2/roan/Reverse_Fastq/B10_R1.fq.gz,/mnt/disks/disk2/roan/Reverse_Fastq/B10_R2.fq.gz,auto,treatment,2,A
-TREATMENT_REP3,/mnt/disks/disk2/roan/Reverse_Fastq/B11_R1.fq.gz,/mnt/disks/disk2/roan/Reverse_Fastq/B11_R2.fq.gz,auto,treatment,3,A
-CONTROL_REP1,/mnt/disks/disk2/roan/WT_Fastq/M138_R1.fq.gz,/mnt/disks/disk2/roan/WT_Fastq/M138_R2.fq.gz,auto,control,1,B
-CONTROL_REP2,/mnt/disks/disk2/roan/WT_Fastq/M139_R1.fq.gz,/mnt/disks/disk2/roan/WT_Fastq/M139_R2.fq.gz,auto,control,2,B
-CONTROL_REP3,/mnt/disks/disk2/roan/WT_Fastq/M140_R1.fq.gz,/mnt/disks/disk2/roan/WT_Fastq/M140_R2.fq.gz,auto,control,3,B
-CONTROL_REP4,/mnt/disks/disk2/roan/WT_Fastq/M141_R1.fq.gz,/mnt/disks/disk2/roan/WT_Fastq/M141_R2.fq.gz,auto,control,4,B
+TREATMENT_REP1,/path_to_file/B9_R1.fq.gz,/path_to_file/B9_R2.fq.gz,auto,treatment,1,A 
+TREATMENT_REP2,/path_to_file/B10_R1.fq.gz,/path_to_file/B10_R2.fq.gz,auto,treatment,2,A
+TREATMENT_REP3,/path_to_file/B11_R1.fq.gz,/path_to_file/B11_R2.fq.gz,auto,treatment,3,A
+CONTROL_REP1,/path_to_file/M138_R1.fq.gz,/path_to_file/M138_R2.fq.gz,auto,control,1,B
+CONTROL_REP2,/path_to_file/M139_R1.fq.gz,/path_to_file/M139_R2.fq.gz,auto,control,2,B
+CONTROL_REP3,/path_to_file/M140_R1.fq.gz,/path_to_file/M140_R2.fq.gz,auto,control,3,B
+CONTROL_REP4,/path_to_file/M141_R1.fq.gz,/path_to_file/M141_R2.fq.gz,auto,control,4,B
 
